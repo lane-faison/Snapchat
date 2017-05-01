@@ -17,6 +17,8 @@ class SignInViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+
     }
     
     @IBAction func logInTapped(_ sender: Any) {
@@ -31,6 +33,9 @@ class SignInViewController: UIViewController {
                         print("Hey we have an error: \(error)")
                     } else {
                         print("Created user successfully!")
+                        
+                        FIRDatabase.database().reference().child("users").child(user!.uid).child("email").setValue(user!.email!)
+                        
                         self.performSegue(withIdentifier: "signinsegue", sender: nil)
                     }
                 })

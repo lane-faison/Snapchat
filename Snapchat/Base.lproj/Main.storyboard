@@ -172,10 +172,10 @@
             </objects>
             <point key="canvasLocation" x="2806" y="42"/>
         </scene>
-        <!--View Controller-->
+        <!--Select User View Controller-->
         <scene sceneID="Uba-sZ-YOb">
             <objects>
-                <viewController id="cm8-4D-UAe" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="cm8-4D-UAe" customClass="SelectUserViewController" customModule="Snapchat" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="RG4-vJ-hN0"/>
                         <viewControllerLayoutGuide type="bottom" id="tkk-kv-I0z"/>
@@ -183,8 +183,23 @@
                     <view key="view" contentMode="scaleToFill" id="v7q-Ba-ECo">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="UAh-oC-sdH">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="UAh-oC-sdH" firstAttribute="leading" secondItem="v7q-Ba-ECo" secondAttribute="leading" id="Fyj-8p-f1d"/>
+                            <constraint firstAttribute="trailing" secondItem="UAh-oC-sdH" secondAttribute="trailing" id="Gas-WS-dOq"/>
+                            <constraint firstItem="tkk-kv-I0z" firstAttribute="top" secondItem="UAh-oC-sdH" secondAttribute="bottom" id="LOM-w5-BDM"/>
+                            <constraint firstItem="UAh-oC-sdH" firstAttribute="top" secondItem="RG4-vJ-hN0" secondAttribute="bottom" id="dp1-yF-H1a"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="UAh-oC-sdH" id="Z02-kN-E8X"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nkl-0s-3Ru" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
