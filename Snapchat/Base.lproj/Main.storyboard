@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -82,7 +83,7 @@
         <!--Snaps View Controller-->
         <scene sceneID="EDx-VP-DSS">
             <objects>
-                <viewController id="Y00-xv-dno" customClass="SnapsViewController" customModule="Snapchat" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="Y00-xv-dno" customClass="SnapsViewController" customModule="Snapchat" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="MfA-22-hg1"/>
                         <viewControllerLayoutGuide type="bottom" id="3Gb-kh-bOM"/>
@@ -90,7 +91,19 @@
                     <view key="view" contentMode="scaleToFill" id="RDA-Lx-wet">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="DVu-Vf-wdi">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="DVu-Vf-wdi" firstAttribute="leading" secondItem="RDA-Lx-wet" secondAttribute="leading" id="1Vy-L8-9nd"/>
+                            <constraint firstItem="DVu-Vf-wdi" firstAttribute="top" secondItem="MfA-22-hg1" secondAttribute="bottom" id="EnX-lT-Dc9"/>
+                            <constraint firstAttribute="trailing" secondItem="DVu-Vf-wdi" secondAttribute="trailing" id="Vyg-pZ-OZk"/>
+                            <constraint firstItem="3Gb-kh-bOM" firstAttribute="top" secondItem="DVu-Vf-wdi" secondAttribute="bottom" id="d3b-sK-FYC"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="rkG-2d-wtw">
                         <barButtonItem key="leftBarButtonItem" title="Logout" id="hcw-0i-BPT">
@@ -104,10 +117,56 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="DVu-Vf-wdi" id="c3J-k4-34b"/>
+                        <segue destination="Jr6-nk-v9I" kind="show" identifier="viewsnapsegue" id="2Tm-X2-7H6"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hbh-pB-oVI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1876" y="37.331334332833585"/>
+        </scene>
+        <!--View Snap View Controller-->
+        <scene sceneID="Z2Z-iT-Ssi">
+            <objects>
+                <viewController id="Jr6-nk-v9I" customClass="ViewSnapViewController" customModule="Snapchat" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="yws-RR-mJ3"/>
+                        <viewControllerLayoutGuide type="bottom" id="VEJ-oQ-Qw9"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="JY4-Mj-tYR">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This is me saying hello" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bmW-JE-elB">
+                                <rect key="frame" x="5" y="636" width="365" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Ycw-gg-btc">
+                                <rect key="frame" x="26" y="74" width="323" height="552"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Ycw-gg-btc" firstAttribute="top" secondItem="yws-RR-mJ3" secondAttribute="bottom" constant="10" id="15T-Fp-0f5"/>
+                            <constraint firstItem="bmW-JE-elB" firstAttribute="top" secondItem="Ycw-gg-btc" secondAttribute="bottom" constant="10" id="7LV-0B-ls2"/>
+                            <constraint firstItem="Ycw-gg-btc" firstAttribute="leading" secondItem="JY4-Mj-tYR" secondAttribute="leadingMargin" constant="10" id="Aex-PF-zAO"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Ycw-gg-btc" secondAttribute="trailing" constant="10" id="H3m-6F-Z4u"/>
+                            <constraint firstAttribute="trailing" secondItem="bmW-JE-elB" secondAttribute="trailing" constant="5" id="PJp-uV-LSm"/>
+                            <constraint firstItem="bmW-JE-elB" firstAttribute="leading" secondItem="JY4-Mj-tYR" secondAttribute="leading" constant="5" id="hcs-i5-yB0"/>
+                            <constraint firstItem="VEJ-oQ-Qw9" firstAttribute="top" secondItem="bmW-JE-elB" secondAttribute="bottom" constant="10" id="zzB-dv-nyZ"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="imageView" destination="Ycw-gg-btc" id="Gjv-eO-RHh"/>
+                        <outlet property="label" destination="bmW-JE-elB" id="LE0-H4-vPT"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Umn-29-HPV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1876" y="818"/>
         </scene>
         <!--Picture View Controller-->
         <scene sceneID="2Ox-vW-vM5">
@@ -129,7 +188,7 @@
                                     <constraint firstAttribute="width" constant="250" id="cv9-Zh-SsG"/>
                                 </constraints>
                             </imageView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Picture description..." borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2Qm-Fi-vla">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Description..." textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2Qm-Fi-vla">
                                 <rect key="frame" x="62.5" y="264" width="250" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
